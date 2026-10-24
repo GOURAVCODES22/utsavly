@@ -1,0 +1,7 @@
+UTSAVLY restore notes
+
+- Supabase configuration and upload code removed.
+- Invitation generation, QR and social share actions remain.
+- Downloaded HTML invitation embeds the selected local song as a data URL, so the downloaded file can play it offline.
+- Sharing only the link does not attach the downloaded HTML file. Online custom-song playback requires a public direct audio URL; otherwise the share link uses built-in music.
+- Browser autoplay restrictions may require the guest to tap the music control.

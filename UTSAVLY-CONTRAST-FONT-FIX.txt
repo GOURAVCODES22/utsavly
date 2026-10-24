@@ -1,0 +1,6 @@
+Contrast and font fix
+- Increased text shadow/legibility for invitation player text over bright backgrounds.
+- Enforced the selected font CSS variable for invitation names.
+- On font change, ask the browser to load the selected font before refreshing the preview.
+- Added a dark translucent glass backing and stronger shadows to Premium Experiences text so it is more visible; the text colour picker remains usable.
+Please deploy and test on a real phone. Cross-device uploaded-song sharing still requires public audio storage/URL support.

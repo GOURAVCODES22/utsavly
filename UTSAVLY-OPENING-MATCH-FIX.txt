@@ -1,0 +1,15 @@
+UTSAVLY opening consistency fix — 22 October 2026
+
+Changes:
+1. Fixed downloaded HTML asset indexing. The previous export read the opening asset list from the wrong Promise result whenever the selected card had image artwork, leaving the exported image map empty. Export now reads the asset list from its correct result slot.
+2. Added a validation step so download fails with a visible error rather than silently exporting if any opening image (o_*.webp / ot_*.webp) could not be embedded.
+3. Shared /i/ invitation links now wait for the real image-based opening engine to finish loading before opening the invitation. This avoids a race where the older fallback cinematic could open before the player bridge and opening engine loaded.
+4. The share path uses the existing studio/player bridge, which reconstructs the selected card artwork and normalizes the selected opening ID.
+
+Validation performed:
+- JavaScript syntax checks passed for studio.js, app.js and openings-real.js.
+- Confirmed all 113 listed studio assets exist in the project's sc/ directory.
+- ZIP integrity is checked after packaging.
+- Full real-device/browser interaction QA is still recommended before production deployment.
+
+- Removed the always-visible floating “Create Your Own Invitation” CTA from downloaded invitation HTML. The CTA remains only in the completion/end screen so guests can experience the invitation first.

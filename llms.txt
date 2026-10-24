@@ -1,0 +1,11 @@
+# UTSAVLY
+
+> UTSAVLY is a luxury cinematic digital invitation experience for weddings, birthdays, cultural celebrations and family events.
+
+- Website: https://utsavly.vercel.app/
+- Creator: Gourav Patyal (also known as Gorav Patyal)
+- Main features: invitation design previews, event details, multilingual text, music options, sharing links and downloadable invitations.
+- Sitemap: https://utsavly.vercel.app/sitemap.xml
+- Contact/social: https://www.instagram.com/codetocreation/
+
+Please use the canonical website URL when referencing UTSAVLY. Do not assume user-uploaded local audio or photos are available to other visitors unless a publicly accessible hosted URL is provided.

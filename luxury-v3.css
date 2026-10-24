@@ -1,0 +1,106 @@
+/* UTSAVLY v3 — theme + floral hero + compact card lines. Loaded after every other stylesheet. */
+:root{--v-serif:'Cormorant Garamond',serif;--v-sans:'DM Sans',system-ui,sans-serif}
+/* ---------- DARK (default): premium black / charcoal + gold ---------- */
+html.dark,html:not(.light){
+  --v-bg:#0a0a0b;--v-bg2:#111113;--v-panel:#16161a;--v-panel2:#1d1d22;--v-ink:#f3ecde;--v-muted:#a39d92;
+  --v-gold:#d8b06a;--v-gold2:#f2d79b;--v-line:rgba(216,176,106,.22);--v-chip:#18181b;
+  --v-btn:linear-gradient(135deg,#f3d595,#b98643);--v-btn-ink:#17120b;--v-glass:rgba(10,10,11,.58);
+  --v-hero:radial-gradient(ellipse at 50% 0%,rgba(216,176,106,.16),transparent 55%),radial-gradient(ellipse at 50% 100%,rgba(216,176,106,.08),transparent 50%),#0a0a0b;
+  --bg:#0a0a0b;--paper:#16161a;--ink:#f3ecde;--muted:#a39d92;--gold:#d8b06a;--gold2:#f2d79b;--line:rgba(216,176,106,.22);
+  --lux-bg:#0a0a0b;--lux-panel:#111113;--lux-panel2:#16161a;--lux-cream:#f3ecde;--lux-muted:#a39d92;--lux-line:rgba(216,176,106,.22)}
+/* ---------- LIGHT: lavender / dusty blue / ivory / blush (from the chosen wedding-site design) ---------- */
+html:not(.dark){
+  --v-bg:#f4efe8;--v-bg2:#e4def0;--v-panel:#fbf8f3;--v-panel2:#ece6f4;--v-ink:#2a2940;--v-muted:#6b6a82;
+  --v-gold:#a88a4d;--v-gold2:#8a6d33;--v-line:rgba(86,102,143,.24);--v-chip:#fbf8f3;
+  --v-btn:linear-gradient(135deg,#6f7eaa,#4a5984);--v-btn-ink:#fbf8f3;--v-glass:rgba(244,239,232,.62);
+  --v-hero:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.7),transparent 55%),linear-gradient(180deg,#c7bde3 0%,#d9d1ec 55%,#efe8f0 100%);
+  --bg:#f4efe8;--paper:#fbf8f3;--ink:#2a2940;--muted:#6b6a82;--gold:#a88a4d;--gold2:#8a6d33;--line:rgba(86,102,143,.24);
+  --lux-bg:#f4efe8;--lux-panel:#fbf8f3;--lux-panel2:#ece6f4;--lux-cream:#2a2940;--lux-muted:#6b6a82;--lux-line:rgba(86,102,143,.24)}
+html.luxMode,html.luxMode body,body{background:var(--v-bg)!important;color:var(--v-ink)!important}
+html:not(.dark) body{background:linear-gradient(180deg,#f4efe8,#ece6f4 60%,#f4efe8)!important}
+.nav{background:var(--v-glass)!important;border-bottom:1px solid var(--v-line)!important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.brand,.brand span{color:var(--v-ink)!important}.brand span{color:var(--v-gold)!important}
+.outlineBtn,.iconBtn{color:var(--v-ink)!important;border-color:var(--v-line)!important;background:transparent!important}
+h1,h2,h3,.hero h1{font-family:var(--v-serif)!important;color:var(--v-ink)}
+.hero h1 em,h2 em{color:var(--v-gold)!important}
+.btn.primary{background:var(--v-btn)!important;color:var(--v-btn-ink)!important;border:0!important}
+.btn.soft{background:var(--v-glass)!important;color:var(--v-ink)!important;border:1px solid var(--v-line)!important}
+.collection,.showcase,.customization,.reviews,.share,.creatorIdentity,footer{background:transparent!important;color:var(--v-ink)}
+.collection{display:none!important}
+.luxCollections{display:none!important}
+.eyebrow{color:var(--v-gold)!important}
+p,small,.lead{color:var(--v-muted)}
+.sectionIntro p,.lead{color:var(--v-muted)}
+
+/* ---------- HERO: full screen, flowers on both sides, design in the centre ---------- */
+.hero{position:relative!important;min-height:100svh!important;height:auto;width:100%!important;max-width:none!important;margin:0!important;padding:calc(86px + env(safe-area-inset-top,0px)) 0 56px!important;border:0!important;border-radius:0!important;box-shadow:none!important;
+  display:grid!important;place-items:center;overflow:hidden;background:var(--v-hero)!important}
+.hero::before,.hero::after{display:none!important}
+.hero .heroGlow{display:none}
+.vfl{position:absolute;inset:0;z-index:1;pointer-events:none}
+.vfl-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.8s ease}
+.vfl-slide.on{opacity:1}
+.vfl-slide i{position:absolute;top:0;bottom:0;width:clamp(96px,27vw,440px);background-repeat:no-repeat;background-size:auto 100%;will-change:transform;
+  filter:drop-shadow(0 10px 28px rgba(0,0,0,.35));animation:vflSway 9s ease-in-out infinite alternate}
+.vfl-slide i{transform-origin:center}
+.vfl-slide i.l{left:0}
+.vfl-slide i.r{right:0;animation-delay:-4s}
+.vfl-slide i.flip{transform:scaleX(-1)}
+.vfl-slide.s-blue i{background-position:right bottom;height:84%;top:auto}
+.vfl-slide.s-blue i.l{background-position:right bottom}
+@keyframes vflSway{from{translate:0 0;rotate:0deg}to{translate:0 -10px;rotate:.8deg}}
+html:not(.dark) .vfl-slide i{filter:drop-shadow(0 8px 20px rgba(60,50,110,.22))}
+.vfl-dust{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,226,160,.85) 0 1.2px,transparent 2px);background-size:90px 110px,150px 130px;opacity:.28;animation:vflDust 40s linear infinite;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 80%)}
+html:not(.dark) .vfl-dust{background-image:radial-gradient(circle,rgba(255,255,255,.95) 0 1.4px,transparent 2.4px)}
+@keyframes vflDust{to{background-position:0 400px,-200px 600px}}
+.heroCard{position:relative!important;z-index:3;width:min(560px,calc(100% - 2*clamp(30px,10vw,260px)))!important;max-width:none!important;margin:0 auto!important;padding:clamp(26px,5vw,48px) clamp(14px,3vw,34px)!important;text-align:center;
+  background:var(--v-glass)!important;border:1px solid var(--v-line)!important;border-radius:999px 999px 26px 26px!important;box-shadow:0 30px 80px rgba(0,0,0,.28);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.heroCard::before{content:"✦";display:block;color:var(--v-gold);font-size:18px;margin-bottom:6px;letter-spacing:.3em}
+.heroCard .eyebrow{font-size:clamp(8px,2.2vw,11px)!important;letter-spacing:.16em!important;line-height:1.7;padding:0 8px}
+.heroCard h1{font-size:clamp(36px,10.5vw,78px)!important;line-height:.98!important;margin:.2em 0 .3em!important;letter-spacing:-.01em}
+.heroCard .lead{font-size:clamp(13px,3.6vw,16px)!important;line-height:1.6!important;margin:0 auto 18px!important;max-width:30em}
+.heroCard .actions{display:grid!important;gap:10px;justify-items:center;margin:0 auto}
+.heroCard .actions .btn{min-width:min(100%,250px)}
+.heroCard .heroMeta{display:none!important}
+.hero .scrollHint{text-align:center;position:absolute!important;bottom:calc(14px + env(safe-area-inset-bottom,0px));left:0;right:0;z-index:3;color:var(--v-muted)!important}
+.vdots{position:absolute;z-index:4;bottom:calc(46px + env(safe-area-inset-bottom,0px));left:0;right:0;display:flex;justify-content:center;gap:8px}
+.vdots button{width:7px;height:7px;border-radius:50%;border:0;padding:0;background:var(--v-gold);opacity:.35;transition:all .4s}
+.vdots button.on{opacity:1;width:22px;border-radius:9px}
+@media (min-width:900px){.heroCard{width:min(620px,52vw)!important}.vfl-slide i{width:clamp(220px,26vw,520px)}}
+
+/* ---------- COMPACT CARD LINES ---------- */
+.showcase{padding-top:34px!important;padding-bottom:6px!important}
+.showcase .sectionIntro h2{font-size:clamp(26px,6.5vw,44px)!important;margin:.1em 0 .25em}
+.showcase .sectionIntro>p:not(.eyebrow){font-size:13px;margin:0 0 12px}
+#v3Cards{padding:6px 0 10px}
+.v3Head{padding:10px clamp(14px,4vw,40px) 4px}
+.v3Head h2{font-size:clamp(26px,6.5vw,44px);margin:2px 0 4px;line-height:1.02}
+.v3Head p{margin:0;font-size:13px}
+.v3Chips{position:sticky;top:calc(64px + env(safe-area-inset-top,0px));z-index:30;display:flex;gap:7px;overflow-x:auto;padding:10px clamp(14px,4vw,40px);scrollbar-width:none;background:var(--v-glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--v-line);border-top:1px solid var(--v-line)}
+.v3Chips::-webkit-scrollbar{display:none}
+.v3Chips button{flex:none;border:1px solid var(--v-line);background:var(--v-chip);color:var(--v-ink);border-radius:99px;padding:8px 14px;font:700 11.5px var(--v-sans);letter-spacing:.03em;white-space:nowrap;cursor:pointer}
+.v3Chips button.on{background:var(--v-btn);color:var(--v-btn-ink);border-color:transparent}
+.v3Row{padding:14px 0 2px;scroll-margin-top:122px}
+.v3RowHead{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:0 clamp(14px,4vw,40px);margin-bottom:8px}
+.v3RowHead b{font:600 clamp(19px,5vw,26px) var(--v-serif);color:var(--v-ink)}
+.v3RowHead small{font:600 10.5px var(--v-sans);letter-spacing:.1em;color:var(--v-muted);white-space:nowrap}
+.v3Row.prem .v3RowHead b{color:var(--v-gold)}
+.v3Rail{display:flex;gap:10px;overflow-x:auto;padding:4px clamp(14px,4vw,40px) 10px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-x:contain}
+.v3Rail::-webkit-scrollbar{display:none}
+.v3Card{flex:none;width:clamp(92px,26vw,128px);scroll-snap-align:start;background:none;border:0;padding:0;text-align:left;cursor:pointer;color:var(--v-ink);font-family:var(--v-sans)}
+.v3Art{position:relative;display:block;aspect-ratio:2/3;border-radius:12px;overflow:hidden;background:var(--v-panel2);border:1px solid var(--v-line);box-shadow:0 8px 20px rgba(0,0,0,.22);transition:transform .25s}
+.v3Card:active .v3Art,.v3Card:hover .v3Art{transform:translateY(-3px)}
+.v3Art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.v3Art .upc{position:absolute;inset:0}
+.v3Card b{display:block;margin-top:6px;font:600 11px/1.25 var(--v-sans);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v3Card small{display:block;font:600 8.5px var(--v-sans);letter-spacing:.14em;color:var(--v-muted);margin-top:1px}
+.v3Badge{position:absolute;top:6px;left:6px;z-index:2;font:800 7.5px var(--v-sans);letter-spacing:.12em;padding:3px 6px;border-radius:99px;background:linear-gradient(135deg,#f3d595,#b98643);color:#17120b}
+.v3Badge.free{background:rgba(255,255,255,.88);color:#2a2940}
+.v3Row.openings .v3Card{width:clamp(96px,27vw,128px)}
+.v3Tile{aspect-ratio:1/1;border-radius:14px;display:grid;place-items:center;font-size:32px;border:1px solid var(--v-line);box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.v3Play{position:absolute;right:6px;bottom:6px;width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;font-size:9px;display:grid;place-items:center}
+.v3Tile{position:relative}
+.v3Note{padding:2px clamp(14px,4vw,40px) 6px;font-size:11.5px;color:var(--v-muted)}
+
+.v3Art{background:linear-gradient(160deg,var(--v-panel2),var(--v-panel))}
+.v3Art img{opacity:0;transition:opacity .4s}.v3Art img[src]{opacity:1}

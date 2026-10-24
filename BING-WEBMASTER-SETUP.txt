@@ -1,0 +1,19 @@
+BING WEBMASTER TOOLS — SETUP GUIDE
+
+Included in this ZIP:
+- A Bing verification meta tag in index.html: <meta name="msvalidate.01" content="PASTE_BING_VERIFICATION_TOKEN_HERE">
+- sitemap.xml and robots.txt
+- Open Graph metadata and 1200x630 og-image.jpg
+
+Required owner action (the verification token must come from your Bing account):
+1. Deploy this site to the final production domain.
+2. Visit https://www.bing.com/webmasters/ and sign in.
+3. Add/import your site (for this project the configured canonical domain is https://utsavly.vercel.app/).
+4. Choose HTML meta-tag verification and copy the exact token Bing provides.
+5. In index.html, replace PASTE_BING_VERIFICATION_TOKEN_HERE with that exact token. Do not invent a token.
+6. Commit and push index.html to GitHub, then wait for Vercel deployment to finish.
+7. Return to Bing Webmaster Tools and select Verify.
+8. Submit https://utsavly.vercel.app/sitemap.xml under Sitemaps.
+9. Use URL Inspection for the homepage and request indexing if available.
+
+Important: the placeholder does NOT verify ownership until you replace it with the real token. I cannot create or infer a token from your account. If your final domain differs from utsavly.vercel.app, update canonical URLs, OG URLs, sitemap.xml, robots.txt, and this guide to that domain consistently before submission.

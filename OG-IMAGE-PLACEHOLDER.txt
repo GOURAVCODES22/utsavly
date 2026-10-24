@@ -1,0 +1,4 @@
+Open Graph image is included as og-image.jpg.
+Expected dimensions: 1200 x 630 pixels (JPEG).
+The homepage Open Graph and Twitter Card tags reference https://utsavly.vercel.app/og-image.jpg.
+If the production domain changes, update the image URLs in index.html to match it.

@@ -1,0 +1,9 @@
+UTSAVLY correction pass
+- Added a text-colour picker to the Premium Experiences demo editor; applies to the final personalised scene.
+- Made the Premium Experiences demo editor use a bottom-sheet layout on small screens to avoid overlapping controls.
+- Added defensive CSS to hide sprinkle/confetti overlays within the Premium Experiences showcase.
+- Removed the “Made with UTSAVLY” line from the guest-facing invitation player footer.
+Important limitations:
+- Premium Experiences 06–11 are still demo experiences; the existing code explicitly locks final generation/download for those demos.
+- Uploaded music in a share URL still needs remote audio storage/public URL support; local uploaded files cannot automatically play for other guests.
+- Live site, cross-device share/music, SEO indexing and Bing verification still need deployment/testing.

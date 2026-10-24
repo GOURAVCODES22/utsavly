@@ -1,0 +1,1 @@
+Supabase/cloud storage removed. Downloaded HTML invitations can embed the selected uploaded song. Online share links do not upload custom songs; use a public direct audio URL for custom music in a link. Built-in music remains available.

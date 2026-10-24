@@ -1,0 +1,8 @@
+UTSAVLY — Fixes in this package
+
+1. Downloaded studio invitations now include the updated cinematic opening engine and its required opening images inside the HTML file.
+2. Studio downloads automatically start the chosen opening and include the selected card artwork, uploaded main photo, and gallery photos in the exported HTML data.
+3. Photo sizing in the invitation scene has been adjusted to keep the uploaded photo visible and responsive.
+4. Premium experiences 06–11 now have a Customize & Download flow that exports the full multi-scene invitation and embeds its scene images into one HTML file.
+
+Note: This is a front-end package. A payment gateway, server-side invitation hosting, and persistent database are not configured by this ZIP; those require separate backend setup.

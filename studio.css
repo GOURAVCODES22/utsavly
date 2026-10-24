@@ -1,0 +1,221 @@
+/* UTSAVLY studio — full-screen customize flow */
+#builder,.cinematic,#hub,#openCats{display:none!important}
+body.stuOpen{overflow:hidden!important}
+.stu{position:fixed;inset:0;z-index:9000;background:#070605;color:#f4ecdd;display:flex;flex-direction:column;font-family:'DM Sans',system-ui,sans-serif;height:100dvh}
+.stu *{box-sizing:border-box}
+.stu-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:calc(env(safe-area-inset-top,0px) + 10px) 14px 8px}
+.stu-top b{font:600 18px 'Cormorant Garamond',serif;letter-spacing:.06em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stu-top small{display:block;font:700 8px 'DM Sans';letter-spacing:.24em;color:#d8b06a}
+.stu-x{width:38px;height:38px;border-radius:50%;border:1px solid rgba(216,176,106,.35);background:transparent;color:#f2d79b;font-size:18px;flex:none}
+.stu-prev{flex:none;height:min(38dvh,360px);display:flex;justify-content:center;align-items:center;padding:4px 14px 10px;position:relative}
+.stu-prev .stuCard{height:100%;aspect-ratio:var(--ar,.5625);max-width:100%;border-radius:12px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.65),0 0 0 1px rgba(216,176,106,.3)}
+.stu-prev .stuCard .upc{width:100%;height:100%}
+.stu-tabs{flex:none;display:flex;gap:6px;overflow-x:auto;padding:4px 12px 8px;scrollbar-width:none;border-bottom:1px solid rgba(216,176,106,.15)}
+.stu-tabs::-webkit-scrollbar{display:none}
+.stu-tabs button{flex:none;border:1px solid rgba(216,176,106,.22);background:transparent;color:#b9ad97;border-radius:99px;padding:9px 14px;font:700 11px 'DM Sans';letter-spacing:.06em;white-space:nowrap}
+.stu-tabs button.on{background:linear-gradient(135deg,#f0cd88,#b5823d);color:#17120b;border-color:transparent}
+.stu-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:14px 14px 20px;min-height:0}
+.stu-pane{display:none;max-width:640px;margin:0 auto}.stu-pane.on{display:block}
+.stu label{display:grid;gap:6px;font:600 11px 'DM Sans';color:#a99d89;margin:0 0 12px;letter-spacing:.04em}
+.stu input:not([type=range]):not([type=color]):not([type=file]),.stu textarea,.stu select{width:100%;border:1px solid rgba(216,176,106,.25);border-radius:12px;background:#12100d;color:#f4ecdd;padding:12px;font:500 15px 'DM Sans';outline:0}
+.stu textarea{min-height:88px;resize:vertical}
+.stu input:focus,.stu textarea:focus,.stu select:focus{border-color:#d8b06a}
+.stu .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stu h4{font:700 10px 'DM Sans';letter-spacing:.22em;color:#d8b06a;margin:16px 0 8px;text-transform:uppercase}
+.stu-sw{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.stu-sw button{width:38px;height:38px;border-radius:50%;border:2px solid rgba(255,255,255,.18);padding:0}
+.stu-sw button.on{border-color:#f2d79b;box-shadow:0 0 0 2px #070605,0 0 0 4px #f2d79b}
+.stu-sw .auto{width:auto;border-radius:99px;padding:0 14px;background:#12100d;color:#f2d79b;font:700 11px 'DM Sans'}
+.stu-sw input[type=color]{width:38px;height:38px;border-radius:50%;padding:0;border:2px solid rgba(255,255,255,.3);background:none}
+.stu input[type=range]{width:100%;accent-color:#d8b06a}
+.stu-op{display:grid;grid-template-columns:1fr;gap:9px}
+.stu-opg{font:700 12px 'DM Sans';color:#f2d79b;margin:14px 0 2px}
+.stu-opc{display:grid;grid-template-columns:78px 1fr auto;gap:11px;align-items:center;border:1px solid rgba(216,176,106,.16);border-radius:14px;padding:8px;background:#0e0c0a}
+.stu-opc.on{border-color:#f2d79b;box-shadow:0 0 0 1px rgba(242,215,155,.25)}
+.stu-opt{height:62px;border-radius:10px;display:grid;place-items:center;font-size:28px}
+.stu-opc strong{display:block;font:600 16px 'Cormorant Garamond',serif;color:#f4ecdd}
+.stu-opc small{display:block;font:500 10px/1.35 'DM Sans';color:#8f8575;margin-top:2px}
+.stu-opc .btns{display:grid;gap:5px}
+.stu-opc button,.stu-mini{border:1px solid rgba(216,176,106,.35);background:#15130f;color:#f2d79b;border-radius:99px;padding:7px 11px;font:700 10px 'DM Sans';white-space:nowrap}
+.stu-opc.on .pick{background:linear-gradient(135deg,#f0cd88,#b5823d);color:#17120b;border-color:transparent}
+.stu-fx{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stu-fx button{border:1px solid rgba(216,176,106,.2);background:#0e0c0a;color:#f4ecdd;border-radius:14px;padding:14px 4px;font:600 12px 'DM Sans';display:grid;gap:6px;place-items:center}
+.stu-fx button span{font-size:24px}.stu-fx button.on{border-color:#f2d79b;background:#1a150d}
+.stu-seg{display:flex;gap:6px}.stu-seg button{flex:1;border:1px solid rgba(216,176,106,.25);background:#0e0c0a;color:#b9ad97;border-radius:99px;padding:10px;font:700 11px 'DM Sans'}.stu-seg button.on{background:#f2d79b;color:#17120b}
+.stu-mu{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.stu-mu button{display:flex;justify-content:space-between;align-items:center;gap:6px;border:1px solid rgba(216,176,106,.2);background:#0e0c0a;color:#f4ecdd;border-radius:12px;padding:11px 10px;font:600 12px 'DM Sans';text-align:left}
+.stu-mu button.on{border-color:#f2d79b;background:#1a150d}.stu-mu button i{font-style:normal;color:#d8b06a;font-size:13px}
+.stu-song{border:1px dashed rgba(216,176,106,.4);border-radius:16px;padding:12px;margin-top:10px;background:#0c0a08}
+.stu-file{display:block;text-align:center;border:1px solid rgba(216,176,106,.45);border-radius:99px;padding:11px;font:700 12px 'DM Sans';color:#f2d79b;margin-bottom:10px}
+.stu-file input{display:none}
+.stu-trim{margin-top:10px}
+.stu-trim .tr{position:relative;height:46px;border-radius:10px;background:#15130f;border:1px solid rgba(216,176,106,.25);overflow:hidden}
+.stu-trim .tr canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+.stu-trim .fill{position:absolute;top:0;bottom:0;background:rgba(242,215,155,.22);border-left:3px solid #f2d79b;border-right:3px solid #f2d79b}
+.stu-trim .ph{position:absolute;top:0;bottom:0;width:2px;background:#fff;display:none}
+.stu-trim input[type=range]{position:absolute;inset:0;width:100%;height:100%;margin:0;background:none;-webkit-appearance:none;appearance:none;pointer-events:none}
+.stu-trim input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;pointer-events:auto;width:22px;height:46px;background:transparent;border:0;cursor:ew-resize}
+.stu-trim input[type=range]::-moz-range-thumb{pointer-events:auto;width:22px;height:46px;background:transparent;border:0;cursor:ew-resize}
+.stu-trim input[type=range]::-webkit-slider-runnable-track{background:transparent}
+.stu-trim .tt{display:flex;justify-content:space-between;font:600 11px 'DM Sans';color:#cdbf9e;margin:7px 2px}
+.stu-note{font:500 11px/1.5 'DM Sans';color:#8f8575;margin:6px 0 0}
+.stu-bar{flex:none;display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 14px calc(env(safe-area-inset-bottom,0px) + 12px);border-top:1px solid rgba(216,176,106,.18);background:#0a0907}
+.stu-bar button{height:48px;border-radius:99px;font:700 13px 'DM Sans';letter-spacing:.03em;border:1px solid rgba(216,176,106,.5);background:transparent;color:#f2d79b}
+.stu-bar .pri{background:linear-gradient(135deg,#f0cd88,#b5823d);color:#17120b;border:0}
+.stu-res{position:absolute;inset:0;z-index:5;background:rgba(5,4,3,.97);overflow-y:auto;padding:calc(env(safe-area-inset-top,0px) + 14px) 16px 24px;text-align:center;display:none}
+.stu-res.on{display:block}
+.stu-res>div{max-width:440px;margin:0 auto}
+.stu-res h3{font:600 30px 'Cormorant Garamond',serif;margin:6px 0 4px}
+.stu-res p{font:500 13px/1.5 'DM Sans';color:#a99d89}
+.stu-res .lb{display:grid;grid-template-columns:1fr auto;border:1px solid rgba(216,176,106,.3);border-radius:12px;overflow:hidden;margin:12px 0}
+.stu-res .lb input{border:0!important;border-radius:0!important;font-size:12px!important}
+.stu-res .lb button{border:0;background:#f2d79b;color:#17120b;font:700 12px 'DM Sans';padding:0 16px}
+.stu-res img{width:210px;height:210px;background:#fff;border-radius:14px;padding:8px;margin:10px auto;display:block}
+.stu-res .acts{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:10px 0}
+.stu-res .acts a,.stu-res .acts button{display:grid;place-items:center;height:46px;border-radius:99px;border:1px solid rgba(216,176,106,.5);background:transparent;color:#f2d79b;font:700 12px 'DM Sans';text-decoration:none}
+.stu-res .acts .pri{background:linear-gradient(135deg,#f0cd88,#b5823d);color:#17120b;border:0}
+.stu-res .back{margin-top:6px;border:0;background:none;color:#a99d89;font:600 13px 'DM Sans';text-decoration:underline}
+.stu-res .brand{margin-top:20px;font:500 11px/1.7 'DM Sans';color:#7d7466}.stu-res .brand a{color:#d8b06a;font-weight:700;text-decoration:none}
+@media(min-width:900px){
+ .stu{flex-direction:row;flex-wrap:wrap}
+ .stu-top{width:100%}
+ .stu-prev{width:44%;height:calc(100dvh - 140px);padding:10px 30px}
+ .stu-right{width:56%;display:flex;flex-direction:column;min-height:0;height:calc(100dvh - 70px)}
+}
+@media(max-width:900px){.stu-right{display:contents}}
+.stu-right{min-height:0}
+
+.stu-thumbs{display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 8px}
+.stu-thumbs div{position:relative;width:64px;height:80px;border-radius:10px;overflow:hidden;border:1px solid rgba(216,176,106,.4)}
+.stu-thumbs img{width:100%;height:100%;object-fit:cover}
+.stu-thumbs button{position:absolute;top:3px;right:3px;width:22px;height:22px;border-radius:50%;border:0;background:rgba(0,0,0,.7);color:#fff;font-size:11px;padding:0}
+
+/* Optional function builder and banner gallery controls; inherits the current Utsavly studio palette. */
+.stu-functions-wrap{margin:16px 0;padding:13px;border:1px solid rgba(182,139,72,.25);border-radius:14px;background:rgba(182,139,72,.045)}.stu-functions-head h4{margin:0 0 5px}.stu-functions-head h4 span{font-size:11px;font-weight:400;opacity:.72}.stu-functions-head small{display:block;font-size:11px;line-height:1.5;opacity:.72;margin-bottom:10px}.stu-function-row{padding:10px;margin:10px 0;border:1px solid rgba(182,139,72,.24);border-radius:11px;background:rgba(0,0,0,.08)}.stu-function-top{display:grid;grid-template-columns:100px minmax(0,1fr) 34px;gap:7px;margin-bottom:8px}.stu-function-top select,.stu-function-top input,.stu-function-row input{min-width:0;width:100%;box-sizing:border-box}.stu-function-top select,.stu-function-top input,.stu-function-row input{padding:10px;border-radius:8px;border:1px solid var(--stu-border,#6a5940);background:var(--stu-field,#181512);color:inherit;font:inherit}.stu-add-function{width:100%;border:1px dashed rgba(182,139,72,.55);background:transparent;color:inherit;border-radius:10px;padding:11px;font:600 12px inherit;cursor:pointer}.stu-add-function span{opacity:.65;margin-left:5px}.stu-add-function:disabled{opacity:.4;cursor:not-allowed}.stu-banner-preview{margin:8px 0 14px;padding:8px;border:1px solid rgba(182,139,72,.22);border-radius:10px}.stu-banner-preview img{display:block;width:100%;max-height:150px;object-fit:contain;margin-bottom:8px}.stu-thumbs>div{position:relative}.stu-thumbs>div img{width:100%;height:100%;object-fit:cover}.stu-thumbs>div button{position:absolute;top:2px;right:2px}
+@media(max-width:480px){.stu-function-top{grid-template-columns:88px minmax(0,1fr) 30px;gap:5px}.stu-function-top select,.stu-function-top input,.stu-function-row input{font-size:12px;padding:9px}}
+
+/* UTSAVLY polish: full-height, usable mobile editor */
+@media(max-width:900px){
+ .stu{display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;height:100dvh;min-height:100dvh;overflow:hidden}
+ .stu-top{flex:none;padding:calc(env(safe-area-inset-top,0px) + 9px) 14px 7px}
+ .stu-prev{width:100%!important;flex:none;height:clamp(210px,34dvh,340px)!important;padding:4px 14px 10px}
+ .stu-right{display:flex!important;flex:1 1 auto!important;flex-direction:column!important;width:100%!important;height:auto!important;min-height:0!important;overflow:hidden}
+ .stu-tabs{flex:none;padding-bottom:9px}
+ .stu-body{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important;padding-bottom:24px;overscroll-behavior:contain}
+ .stu-bar{flex:none;position:relative;z-index:2}
+ .stu-res{position:absolute;inset:0;z-index:10}
+}
+@media(max-width:480px){.stu-prev{height:clamp(190px,31dvh,270px)!important}.stu-top b{font-size:17px}.stu-bar button{height:46px}}
+/* Keep date, occasion and supporting event text readable and colour-linked to the selected text colour. */
+.upz-eyebrow,.upz-line,.upz-sub{color:var(--nink,inherit);opacity:.96;text-shadow:0 1px 8px rgba(0,0,0,.10)}
+/* Remove decorative sprinkle/confetti overlays from premium showcase cards. */
+#premiumExperiences .sprinkle,#premiumExperiences .sprinkles,#premiumExperiences .confetti,#premiumExperiences [class*="sprinkle"],#premiumExperiences [class*="confetti"]{display:none!important;animation:none!important}
+/* Cinematic, restrained headline motion; respects reduced-motion settings. */
+.hero h1{animation:utsavlyHeadlineIn 1.05s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 em{display:inline-block;animation:utsavlyGoldIn 1.25s .12s cubic-bezier(.2,.8,.2,1) both}
+@keyframes utsavlyHeadlineIn{from{opacity:0;transform:translateY(22px);filter:blur(8px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@keyframes utsavlyGoldIn{from{opacity:0;transform:translateY(14px);filter:blur(5px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@media(prefers-reduced-motion:reduce){.hero h1,.hero h1 em{animation:none!important}}
+
+
+/* UTSAVLY corrections: keep premium card artwork clean (no sprinkle/confetti overlays). */
+#premiumExperiences .sprinkle,
+#premiumExperiences .sprinkles,
+#premiumExperiences .confetti,
+#premiumExperiences [class*="sprinkl"],
+#premiumExperiences [class*="confetti"],
+#premiumExperiences canvas[class*="effect"],
+#premiumExperiences .px-sparkle,
+#premiumExperiences .px-particle { display:none !important; }
+
+/* Premium demo editor: full-screen on small devices so controls never sit behind the card. */
+@media (max-width: 640px) {
+  #pxModal .px-editor,
+  #pxModal .px-editor.open {
+    position:fixed !important; inset:auto 10px 10px !important;
+    top:auto !important; right:10px !important; left:10px !important;
+    width:auto !important; max-width:none !important;
+    max-height:72svh !important; overflow-y:auto !important;
+    padding:18px !important; border-radius:18px !important;
+    z-index:2147483002 !important; background:rgba(17,13,10,.98) !important;
+  }
+  #pxModal .px-tools { top:max(12px,env(safe-area-inset-top)); }
+}
+
+/* UTSAVLY editor usability update: larger, easier-to-fill form controls. */
+.stu-body{padding:20px 18px 28px;scroll-padding-bottom:28px}
+.stu-pane{max-width:780px}
+.stu label{font-size:13px;gap:8px;margin-bottom:16px;line-height:1.45}
+.stu input:not([type=range]):not([type=color]):not([type=file]),
+.stu textarea,.stu select{min-height:50px;padding:14px 15px;font-size:16px;border-radius:13px}
+.stu textarea{min-height:120px;line-height:1.55}
+.stu h4{font-size:11px;margin:22px 0 10px;letter-spacing:.17em}
+.stu .two{gap:12px}
+.stu-tabs{gap:8px;padding:8px 14px 10px}
+.stu-tabs button{min-height:42px;padding:11px 16px;font-size:12px}
+.stu-sw{gap:10px}
+.stu-sw button,.stu-sw input[type=color]{width:44px;height:44px}
+.stu-sw .auto{width:auto;min-height:44px;padding:0 16px}
+.stu-seg button{min-height:44px;padding:12px;font-size:12px}
+.stu-mu button{min-height:54px;padding:14px;font-size:13px}
+.stu-file{min-height:48px;padding:14px;font-size:13px}
+.stu-note{font-size:12px;line-height:1.65}
+.stu-opc{grid-template-columns:88px minmax(0,1fr) auto;gap:12px;padding:10px}
+.stu-opc strong{font-size:18px}
+.stu-opc small{font-size:11px;line-height:1.45}
+.stu-opc button,.stu-mini{min-height:38px;padding:9px 13px;font-size:11px}
+.stu-bar{gap:12px;padding:12px 16px calc(env(safe-area-inset-bottom,0px) + 14px)}
+.stu-bar button{height:52px;font-size:14px}
+@media(max-width:900px){
+ .stu-prev{height:clamp(150px,25dvh,250px);padding:4px 12px 8px}
+ .stu-top{padding-left:16px;padding-right:16px}
+ .stu-body{padding:18px 16px 26px}
+ .stu-pane{max-width:100%}
+}
+@media(max-width:480px){
+ .stu .two{grid-template-columns:1fr;gap:0}
+ .stu label{font-size:13px;margin-bottom:15px}
+ .stu input:not([type=range]):not([type=color]):not([type=file]),.stu textarea,.stu select{min-height:52px;font-size:16px;padding:14px}
+ .stu textarea{min-height:118px}
+ .stu-opc{grid-template-columns:64px minmax(0,1fr);gap:10px;padding:10px}
+ .stu-opc .btns{grid-column:1/-1;display:flex;gap:8px}
+ .stu-opc .btns button{flex:1}
+ .stu-opt{height:76px}
+ .stu-bar{grid-template-columns:1fr 1fr}
+}
+
+/* Final editor usability pass: spacious controls, readable labels, and comfortable touch targets. */
+.stu-body{width:100%;}
+.stu-pane{width:100%;max-width:900px;}
+.stu input:not([type=range]):not([type=color]):not([type=file]),.stu textarea,.stu select{box-sizing:border-box;width:100%;min-height:54px;font-size:16px;padding:15px 16px;}
+.stu textarea{min-height:132px;resize:vertical;}
+.stu label{display:flex;flex-direction:column;gap:9px;margin-bottom:19px;}
+.stu input:focus-visible,.stu textarea:focus-visible,.stu select:focus-visible,.stu button:focus-visible{outline:2px solid #d8b06a;outline-offset:2px;}
+@media(min-width:901px){.stu-body{padding:28px 26px 36px}.stu-pane{margin-inline:auto}.stu .two{gap:18px}}
+@media(max-width:600px){.stu-body{padding:18px 14px 30px}.stu label{margin-bottom:17px}.stu textarea{min-height:124px}.stu-bar button{min-height:54px}}
+
+/* UTSAVLY mobile-first details editor: remove the half-visible invitation card from the form screen. */
+.stu .stu-prev{display:none!important}
+.stu{height:100dvh;min-height:100dvh;overflow:hidden}
+.stu .stu-right{display:flex!important;flex:1 1 auto!important;flex-direction:column!important;width:100%!important;height:auto!important;min-height:0!important;overflow:hidden}
+.stu .stu-top{flex:none}
+.stu .stu-tabs{flex:none}
+.stu .stu-body{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important;padding:18px 16px 32px!important;overscroll-behavior:contain}
+.stu .stu-pane{max-width:760px;width:100%}
+.stu .stu-bar{flex:none;position:relative;z-index:2}
+.stu .stu-res{position:absolute;inset:0;z-index:10}
+@media(min-width:901px){.stu{display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important}.stu .stu-right{width:100%!important;height:auto!important}.stu .stu-body{width:100%!important}}
+@media(max-width:480px){.stu .stu-body{padding:16px 14px 30px!important}.stu label{margin-bottom:17px}.stu input:not([type=range]):not([type=color]):not([type=file]),.stu textarea,.stu select{min-height:50px;padding:14px;font-size:16px}.stu textarea{min-height:120px}}
+
+/* Oct 2026 UX update: full-screen editor; invitation artwork is shown only in Preview. */
+.stu-prev{display:none!important}
+.stu{background:#070605}
+.stu-tabs{padding-top:12px;padding-bottom:12px}
+.stu-body{flex:1;min-height:0;padding:18px 18px 24px}
+.stu-pane.on{display:block;width:100%;max-width:760px;margin:0 auto}
+.stu label{font-size:13px;gap:8px;margin-bottom:16px}
+.stu input:not([type=range]):not([type=color]):not([type=file]),.stu textarea,.stu select{padding:15px;font-size:16px;border-radius:14px}
+.stu textarea{min-height:110px}
+@media(min-width:900px){.stu{flex-direction:column;flex-wrap:nowrap}.stu-body{width:100%}}
+/* No animated sparkle/star overlays in any invitation tier. */
+.upz-sparkles,.sparkle-layer,.starfield,.twinkle-layer,[data-fx="stars"],[data-effect="stars"]{display:none!important;animation:none!important}

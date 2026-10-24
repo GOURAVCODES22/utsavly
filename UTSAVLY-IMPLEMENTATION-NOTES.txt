@@ -1,0 +1,16 @@
+UTSAVLY implementation update — 21 October 2026
+
+Implemented in this package:
+- Free Studio: optional function list (0–6 entries), editable function names, matching icon choices, and optional per-function date/time/venue. Empty function names are omitted from the invitation.
+- Free Studio: optional full rectangular banner photo. It is resized without cropping, shown with soft fade edges, and embedded in downloaded invitation HTML.
+- Memories gallery: gallery upload limit increased from 6 to 20 images; existing slideshow/save behaviour retained.
+- Invitation player: function schedule appears in the final invitation screen; blank date/time/venue fields remain hidden. Banner is included in the animated names reveal and exported file.
+- Premium Cards 1–5: existing scroll-card experience preserved; studio generation is disabled for card entries marked PREMIUM.
+- Premium Cards 6–11: preview/customise demo remains available; generation/download is removed from the demo. Added local-browser demo feedback form and Coming Soon labels; feedback is not sent to a server.
+- Existing colour palette and original artwork assets retained.
+- Premium opening engine export retains selected opening and embeds current opening assets into the downloaded HTML (from the previous fixed package).
+
+Not configured / not verified:
+- No payment gateway, central review database, persistent invitation backend, or server-side access control has been added.
+- Browser/device QA was not completed in this environment. JavaScript syntax and ZIP integrity checks are the current verification level.
+- Premium Cards 6–11 scene timing/layer fidelity still needs side-by-side review against each supplied reference video on real devices.
